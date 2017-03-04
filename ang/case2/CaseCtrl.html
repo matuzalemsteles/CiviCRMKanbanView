@@ -1,0 +1,84 @@
+<div class="crm-container">
+  <div crm-ui-debug="myContact"></div>
+
+  <h1 crm-page-title class="page-title">{{ts('CiviCase: Kanban view %1', {1: myContact.first_name + ' ' + myContact.last_name})}}</h1>
+	
+		<div class="form-group" >
+			<input class="form-control" type="text" placeholder="Filter by status" ng-model="search">
+			<div class="form-group-addon">
+				<i class="fa fa-search"></i>
+			</div>
+		</div>
+		<div class="kanban" ng-controller="KanbanController">
+			<div class="card" ng-repeat="card in kanban | filter:search">
+				<div class="card-title card-title-{{card.color}}">
+					<h1>{{ card.status.label }}</h1>
+					<span class="tooltip"><a class="btn btn-pure" ng-href="/civicrm/case/search?reset=1&force=1&status={{card.status.value}}" target="_blank">{{card.cards.length}}</a><span class="tooltiptext">Total Expectation</span></span>
+				</div>
+				<div class="card-items" kanban-board-drop="over" id="{{ 'column-' + card.status.value }}" data-index="{{ $index }}">
+					<div class="card-item" draggable="true" kanban-board-dragg="task" ng-repeat="item in card.cards | filter:search" id="{{ 'case-' + item.id }}" data-index="{{ $index }}">
+						<div class="column">
+							<div class="avatar avatar-circle"></div>
+						</div>
+						<div class="column">
+							<div class="person">
+								<h1><a class="btn btn-pure" ng-href="/civicrm/contact/view/case?reset=1&id={{item.id}}&cid={{item.api_Contact_get.values[0].contact_id}}&action=view" target="_blank">#{{item.id}}</a></h1>
+								<p><a class="btn btn-pure" ng-href="/civicrm/contact/view?reset=1&cid={{item.api_Contact_get.values[0].contact_id}}" target="_blank">{{item.api_Contact_get.values[0].display_name}}</a></p>
+							</div>
+							<div class="person-info">
+								<span>OWNER</span>
+								<p><a class="btn btn-pure" ng-href="/civicrm/contact/view?reset=1&cid={{item.api_Contact_get.values[0].api_Relationship_get.values[0].cid}}" target="_blank">{{item.api_Contact_get.values[0].api_Relationship_get.values[0].display_name
+	}}</a></p>
+							</div>
+							<div class="person-info">
+								<span>NO OF ACTIVITIES</span>
+								<p><a class="btn btn-pure" ng-href="/civicrm/activity/search?cid={{item.api_Contact_get.values[0].contact_id}}&force=1" target="_blank">{{item.api_Activity_get.count}}</a></p>
+							</div>
+							<div class="person-info">
+								<span>CASE OPEN DATE</span>
+								<p>{{item.start_date | date:'dd/MM/yyyy'}}</p>
+							</div>
+						</div>
+					</div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+
+	<div ng-controller="KanbanCardController">
+		<kanban-modal title="{{columnName}}" show="showNewCase">
+			<form class="" name="newCaseForm" ng-submit="addNewCase(newCase)">
+				<div class="form-group">
+					<input class="form-control" type="text" placeholder="Client" required>
+				</div>
+				<div class="form-group">
+					<div class="form-group-column">
+						<div class="column">
+							<select class="form-control" placeholder="Activity Medium" required>
+								<option>Activity Medium </option>
+								<option value="In person">In person</option>
+								<option value="Phone">Phone</option>
+								<option value="Email">Email</option>
+								<option value="Fax">Fax</option>
+								<option value="Letter Mail">Letter Mail</option>
+							</select>
+						</div>
+						<div class="column">
+							<input class="form-control" type="text" placeholder="Location">
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<textarea class="form-control" placeholder="Details" cols="30" rows="10"></textarea>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" placeholder="Subject" required>
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="date" placeholder="Case Start Date" required>
+				</div>
+			</form>
+		</kanban-modal>
+	</div>
+
+</div>

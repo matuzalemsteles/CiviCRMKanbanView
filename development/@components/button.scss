@@ -1,0 +1,17 @@
+.btn {
+	cursor: pointer;
+	font-size: 20px;
+	color: #99A1A7 !important;
+	text-decoration: none;
+	user-select: none;
+	transition: 0.2s;
+
+	&:hover {
+		color: map-get($colors, primary) !important;
+		text-decoration: none;
+	}
+
+	&.btn-pure {
+		margin: 0;
+	}
+}

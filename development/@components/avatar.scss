@@ -1,0 +1,22 @@
+.avatar {
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	width: 68px;
+	height: 68px;
+	background-color: #F4F4F4;
+
+	&.avatar-circle {
+		border-radius: 50%;
+	}
+
+	&:empty {
+		&:before {
+			content: "\f2c0";
+			font-family: $fontAwesome;
+			position: relative;
+	    color: #B1B1B1;
+	    font-size: 40px;
+		}
+	}
+}

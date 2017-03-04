@@ -1,0 +1,54 @@
+.form-control {
+	width: 100%;
+	height: 60px;
+	font-size: 15px;
+	padding: 0 25px;
+	background-color: #ffffff;
+	transition: 0.2s;
+	border-radius: 5px;
+	line-height: 160%;
+	border: 2px solid transparent !important;
+
+	&:focus,
+	&:hover {
+		border-color: #7d7d7d !important;
+		transition: 0.2s;
+	}
+
+	&:-webkit-input-placeholder {
+		color: #797F8C;
+	}
+}
+
+textarea.form-control {
+	padding-top: 10px;
+	height: auto;
+	border: none;
+}
+
+.form-group {
+	position: relative;
+	padding: 0 0 50px;
+
+	.form-group-column {
+		display: flex;
+		align-items: center;
+	}
+
+	.column {
+		min-width: 48%;
+    margin-right: 22px;
+	}
+}
+
+.form-group-addon {
+	position: absolute;
+  right: 7px;
+  top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  height: 56px;
+  background-color: #fff;
+}

@@ -1,0 +1,51 @@
+.person {
+	h1 {
+		font-size: 22px;
+		color: #7B7B7B;
+		font-weight: bold;
+		margin: 8px 0 3px;
+
+		a {
+			font-size: 22px;
+			color: #7B7B7B !important;
+		}
+	}
+
+	p {
+		font-size: 16px;
+		color: #A3A3A3;
+		font-weight: 400;
+
+		a {
+			font-size: 16px;
+			color: #A3A3A3  !important;
+		}
+	}
+}
+
+.person-info {
+	position: relative;
+	margin-bottom: 12px;
+
+	span {
+		font-size: 12px;
+		color: #A3A3A3;
+		text-transform: uppercase;
+	}
+
+	p {
+		font-size: 16px;
+		color: #A3A3A3;
+		font-weight: bold;
+		margin: 0;
+
+		a {
+			font-size: 16px;
+			color: #A3A3A3  !important;
+		}
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

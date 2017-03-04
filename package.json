@@ -1,0 +1,18 @@
+{
+  "name": "org.civicrm.case2",
+  "version": "1.0.0",
+  "description": "New experience of the case",
+  "author": "Matuzalém Teles <matuzalemteles@gmail.com>",
+  "scripts": {
+    "watch": "gulp watch",
+    "build": "gulp build"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.0",
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-cssmin": "*",
+    "gulp-postcss": "^6.3.0",
+    "gulp-sass": "*"
+  }
+}

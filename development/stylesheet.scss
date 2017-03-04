@@ -1,0 +1,22 @@
+// Shared Variables
+// --------------------------------------------------
+@import "variables/variable";
+
+// Named Color Variables
+// --------------------------------------------------
+$colors: (
+	primary:    #3A9EE2,
+  secondary:  #323641,
+  danger:     #c41c1c,
+  light:      #ffffff,
+  success:    #29c11a,
+  dark:       #44464E
+);
+
+// Core
+// --------------------------------------------------
+@import "@modules/core";
+
+// Components
+// --------------------------------------------------
+@import "@modules/components";
